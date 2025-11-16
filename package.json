@@ -2,22 +2,15 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "prisma generate",
     "lint": "eslint .",
-
-   
-    "prestart": "prisma migrate deploy && prisma db seed",
-
-  
+    "prestart": "prisma migrate deploy && pnpm prisma:seed",
     "start": "next start",
-
-   
     "prisma:seed": "npx ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" prisma/seed.ts"
   },
-
   "dependencies": {
     "@auth/core": "latest",
     "@hookform/resolvers": "^3.10.0",
@@ -77,7 +70,6 @@
     "vaul": "^0.9.9",
     "zod": "3.25.76"
   },
-
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
